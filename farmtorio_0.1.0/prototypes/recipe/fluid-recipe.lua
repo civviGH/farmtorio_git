@@ -54,5 +54,28 @@ data:extend(
     order = "d[fryer-fat processing]"
   },
   
+      
+        {
+        type = "recipe",
+        name = "cookiedough",
+        category = "crafting-with-fluid",
+        enabled = "true",
+        energy_required = 4,
+        ingredients =
+        {
+            {type = "item", name = "butter", amount = 2},
+            {type = "item", name = "touchofsalt", amount = 1},
+            {type = "item", name = "egg", amount = 2},
+            {type = "item", name = "flour", amount = 4},
+            --{type="item", name="sugar", amount = 2},
+            {type="fluid", name="water", amount = 1}
+        },
+        results = 
+        {
+            {type="item", name="cookiedough", amount = 1}
+        }
+    },  
+    
+  
     }
 )

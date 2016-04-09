@@ -220,5 +220,68 @@ data:extend(
             {type="item", name="touchofsalt", amount = 5}
         }
     },  
+    
+            {
+        type = "recipe",
+        name = "butter",
+        enabled = "true",
+        energy_required = 1,
+        ingredients =
+        {
+            {"bottled-milk", 2}
+        },
+        results = 
+        {
+            {type="item", name="butter", amount = 1}
+        }
+    },  
+
+                    {
+        type = "recipe",
+        name = "cookie",
+        category = "smelting",
+        enabled = "true",
+        energy_required = 6,
+        ingredients =
+        {
+            {type ="item", name="cookiedough", amount = 1}
+        },
+        results = 
+        {
+            {type="item", name="cookie", amount = 5}
+        }
+    },  
+    
+                        {
+        type = "recipe",
+        name = "flour",
+        category = "windmill",
+        enabled = "true",
+        energy_required = 2,
+        ingredients =
+        {
+            {type ="item", name="wheat", amount = 2}
+        },
+        results = 
+        {
+            {type="item", name="flour", amount = 1}
+        }
+    },  
+    
+                        {
+        type = "recipe",
+        name = "windmill",
+        enabled = "true",
+        energy_required = 10,
+        ingredients =
+        {
+            {type ="item", name="wood", amount = 1}
+        },
+        results = 
+        {
+            {type="item", name="windmill", amount = 1}
+        }
+    },  
+    
     }
 )

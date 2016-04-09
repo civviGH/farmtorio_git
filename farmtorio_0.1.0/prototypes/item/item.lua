@@ -205,5 +205,55 @@ data:extend(
     order = "h[touchofsalt]",
     stack_size = 200
   },
+          {
+    type = "item",
+    name = "butter",
+    icon = "__farmtorio__/graphics/icons/butter.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "food",
+    order = "i[butter]",
+    stack_size = 200
+  },
+  
+         {
+    type = "item",
+    name = "cookiedough",
+    icon = "__farmtorio__/graphics/icons/cookiedough.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "food",
+    order = "j[cookiedough]",
+    stack_size = 200
+  },
+  
+           {
+    type = "item",
+    name = "cookie",
+    icon = "__farmtorio__/graphics/icons/cookie.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "food",
+    order = "k[cookie]",
+    stack_size = 200
+  },
+   
+    {
+    type = "item",
+    name = "windmill",
+    icon = "__farmtorio__/graphics/icons/windmill.png",
+    flags = {"goes-to-quickbar"},
+    subgroup = "forestry",
+    order = "e[windmill]",
+    place_result = "windmill",
+    stack_size = 50
+  },
+  
+             {
+    type = "item",
+    name = "flour",
+    icon = "__farmtorio__/graphics/icons/flour.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "food",
+    order = "m[flour]",
+    stack_size = 200
+  },
 }   
 )

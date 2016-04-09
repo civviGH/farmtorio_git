@@ -15,7 +15,7 @@ data:extend(
          type="recipe",
          name="egg",
          category="farmcraft",
-         energy_required = 2,
+         energy_required = 1,
          enabled="true",
          ingredients = {
              {type="item", name = "hay", amount = 5}

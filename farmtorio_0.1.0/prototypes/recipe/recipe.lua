@@ -205,5 +205,20 @@ data:extend(
             {type="item", name="teleport-pill", amount = 1}
         }
     },  
+    
+        {
+        type = "recipe",
+        name = "touchofsalt",
+        enabled = "true",
+        energy_required = 1,
+        ingredients =
+        {
+            {"salt", 1}
+        },
+        results = 
+        {
+            {type="item", name="touchofsalt", amount = 5}
+        }
+    },  
     }
 )

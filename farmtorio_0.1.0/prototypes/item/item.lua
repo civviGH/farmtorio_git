@@ -10,6 +10,7 @@ data:extend(
     place_result = "nourishment-lab",
     stack_size = 10
   },
+
   {
     type = "item",
     name = "potato",
@@ -182,6 +183,27 @@ data:extend(
     order = "g[barn]",
     place_result = "barn",
     stack_size = 50
-  }
+  },
+  
+    
+        {
+    type = "item",
+    name = "salt",
+    icon = "__farmtorio__/graphics/icons/salt.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "food",
+    order = "g[salt]",
+    stack_size = 200
+  },
+      
+        {
+    type = "item",
+    name = "touchofsalt",
+    icon = "__farmtorio__/graphics/icons/touchofsalt.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "food",
+    order = "h[touchofsalt]",
+    stack_size = 200
+  },
 }   
 )

@@ -222,7 +222,7 @@ data:extend(
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     animation =
     {
-      filename = "__farmtorio__/graphics/entity/barn3.png",
+      filename = "__farmtorio__/graphics/entity/barn.png",
       priority="high",
       width = 256,
       height = 256,

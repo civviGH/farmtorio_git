@@ -16,6 +16,23 @@ data:extend(
       {type="item", name="pommes", amount=1}
     }
   },
+  
+  
+            {
+    type = "recipe",
+    name = "salt",
+    category = "crafting-with-fluid",
+    energy_required = 1,
+    enabled = "true",
+    ingredients =
+    {
+      {type="fluid", name="water", amount=2}
+    },
+    results=
+    {
+      {type="item", name="salt", amount=1}
+    }
+  },
 
   
   {

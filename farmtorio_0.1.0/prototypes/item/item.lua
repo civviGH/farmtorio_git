@@ -5,7 +5,7 @@ data:extend(
     name = "nourishment-lab",
     icon = "__farmtorio__/graphics/icons/lab.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "production-machine",
+    subgroup = "buildings-subgroup",
     order = "g[nourishment-lab]",
     place_result = "nourishment-lab",
     stack_size = 10
@@ -16,7 +16,7 @@ data:extend(
     name = "potato",
     icon = "__farmtorio__/graphics/icons/potato.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "a[potato]",
     stack_size = 200
   },
@@ -25,7 +25,7 @@ data:extend(
     name = "chopped-potato",
     icon = "__farmtorio__/graphics/icons/chopped-potato.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "b[chopped-potato]",
     stack_size = 200
   },
@@ -35,7 +35,7 @@ data:extend(
     name = "pommes",
     icon = "__farmtorio__/graphics/icons/pommes.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "c[pommes]",
     stack_size = 200,
     durability = 1,
@@ -48,7 +48,7 @@ data:extend(
     name = "forestry",
     icon = "__farmtorio__/graphics/icons/forestry.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "forestry",
+    subgroup = "buildings-subgroup",
     order = "a[forestry]",
     place_result = "forestry",
     stack_size = 50
@@ -59,7 +59,7 @@ data:extend(
     name = "forestrymk2",
     icon = "__farmtorio__/graphics/icons/forestry2.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "forestry",
+    subgroup = "buildings-subgroup",
     order = "b[forestry2]",
     place_result = "forestrymk2",
     stack_size = 50
@@ -70,7 +70,7 @@ data:extend(
     name = "lumbermill",
     icon = "__farmtorio__/graphics/icons/lumbermill.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "forestry",
+    subgroup = "buildings-subgroup",
     order = "c[lumbermill]",
     place_result = "lumbermill",
     stack_size = 50
@@ -81,7 +81,7 @@ data:extend(
     name = "potatoseeds",
     icon = "__farmtorio__/graphics/icons/potatoseeds.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "food",
+    subgroup = "seeds-subgroup",
     order = "h[potatoseeds]",
     place_result = "potatoplant",
     stack_size = 200
@@ -93,7 +93,7 @@ data:extend(
     name = "sunflowerseeds",
     icon = "__farmtorio__/graphics/icons/sunflowerseeds.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "food",
+    subgroup = "seeds-subgroup",
     order = "i[potatoseeds]",
     place_result = "sunflowerplant",
     stack_size = 200
@@ -105,7 +105,7 @@ data:extend(
     name = "sunflower",
     icon = "__farmtorio__/graphics/icons/sunflower.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "j[sunflower]",
     stack_size = 200
   },  
@@ -115,7 +115,7 @@ data:extend(
     name = "wheatseeds",
     icon = "__farmtorio__/graphics/icons/wheatseeds.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "food",
+    subgroup = "seeds-subgroup",
     order = "l[wheatseeds]",
     place_result = "wheatplant",
     stack_size = 200
@@ -127,7 +127,7 @@ data:extend(
     name = "wheat",
     icon = "__farmtorio__/graphics/icons/wheat.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "k[wheat]",
     stack_size = 200
   },
@@ -137,7 +137,7 @@ data:extend(
     name = "hay",
     icon = "__farmtorio__/graphics/icons/hay.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "l[hay]",
     stack_size = 200
   },
@@ -149,7 +149,7 @@ data:extend(
     name = "teleport-pill",
     icon = "__farmtorio__/graphics/icons/pill.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "e[teleport-pill]",
     stack_size = 50
   },  
@@ -159,7 +159,7 @@ data:extend(
     name = "bottled-milk",
     icon = "__farmtorio__/graphics/icons/milk.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "e[milk]",
     stack_size = 200
   },   
@@ -169,7 +169,7 @@ data:extend(
     name = "egg",
     icon = "__farmtorio__/graphics/icons/egg.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "f[egg]",
     stack_size = 200
   },
@@ -179,7 +179,7 @@ data:extend(
     name = "barn",
     icon = "__farmtorio__/graphics/icons/barn.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "forestry",
+    subgroup = "buildings-subgroup",
     order = "g[barn]",
     place_result = "barn",
     stack_size = 50
@@ -191,7 +191,7 @@ data:extend(
     name = "salt",
     icon = "__farmtorio__/graphics/icons/salt.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "g[salt]",
     stack_size = 200
   },
@@ -201,7 +201,7 @@ data:extend(
     name = "touchofsalt",
     icon = "__farmtorio__/graphics/icons/touchofsalt.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "h[touchofsalt]",
     stack_size = 200
   },
@@ -210,7 +210,7 @@ data:extend(
     name = "butter",
     icon = "__farmtorio__/graphics/icons/butter.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "i[butter]",
     stack_size = 200
   },
@@ -220,7 +220,7 @@ data:extend(
     name = "cookiedough",
     icon = "__farmtorio__/graphics/icons/cookiedough.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "j[cookiedough]",
     stack_size = 200
   },
@@ -230,7 +230,7 @@ data:extend(
     name = "cookie",
     icon = "__farmtorio__/graphics/icons/cookie.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "k[cookie]",
     stack_size = 200
   },
@@ -240,9 +240,20 @@ data:extend(
     name = "windmill",
     icon = "__farmtorio__/graphics/icons/windmill.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "forestry",
+    subgroup = "buildings-subgroup",
     order = "e[windmill]",
     place_result = "windmill",
+    stack_size = 50
+  },
+  
+      {
+    type = "item",
+    name = "genelab",
+    icon = "__farmtorio__/graphics/icons/genelab.png",
+    flags = {"goes-to-quickbar"},
+    subgroup = "buildings-subgroup",
+    order = "f[genelab]",
+    place_result = "genelab",
     stack_size = 50
   },
   
@@ -251,9 +262,26 @@ data:extend(
     name = "flour",
     icon = "__farmtorio__/graphics/icons/flour.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "m[flour]",
     stack_size = 200
   },
+  
+        {
+    type = "item",
+    name = "woodfloor",
+    icon = "__farmtorio__/graphics/terrain/woodfloor/woodfloor.png",
+    flags = {"goes-to-quickbar"},
+    subgroup = "buildings-subgroup",
+    order = "g[woodfloor]",
+    place_as_tile =
+    {
+      result = "woodfloor",
+      condition_size = 4,
+      condition = { "water-tile" }
+    },
+    stack_size = 500
+  },
+  
 }   
 )

@@ -116,4 +116,25 @@ data:extend({
     },
     order = "e-c-a"
   },
+  
+     {
+    type = "technology",
+    name = "ironbushtech",
+    icon = "__farmtorio__/graphics/technology/ironbushtech.png",
+    prerequisites = {},
+    effects =
+    {      
+      {
+        type = "unlock-recipe",
+        recipe = "ironorebush"
+      }
+    },
+    unit =
+    {
+      count = 1,
+      ingredients = {{"pommes", 1}},
+      time = 2
+    },
+    order = "e-d-a"
+  },
 })

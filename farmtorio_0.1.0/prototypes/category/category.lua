@@ -33,6 +33,13 @@ data:extend({
     name = "seeds-subgroup",
     group = "farmtorio-group",
     order = "d-a"
+  },      
+  
+    {
+    type = "item-subgroup",
+    name = "bushes-subgroup",
+    group = "farmtorio-group",
+    order = "e-a"
   },
   
   { 
@@ -43,6 +50,11 @@ data:extend({
   { 
       type = "recipe-category",
       name = "windmill"
+  },
+  
+  { 
+      type = "recipe-category",
+      name = "genelab"
   },
   
 }

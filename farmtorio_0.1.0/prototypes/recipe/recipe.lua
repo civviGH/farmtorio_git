@@ -13,6 +13,19 @@ data:extend(
         result = "nourishment-lab"
     },       
     
+       {
+        type = "recipe",
+        name = "genelab",
+        enabled = "true",
+        energy_required = 10,
+        subgroup = "buildings-subgroup",
+        ingredients =
+        {
+            {"wood", 1}
+        },
+        result = "genelab"
+    },    
+    
         {
         type = "recipe",
         name = "findpotatoseeds",
@@ -301,6 +314,22 @@ data:extend(
             {type="item", name="windmill", amount = 1}
         }
     },  
+    
+        {
+        type = "recipe",
+        name = "woodfloor",
+        enabled = "true",
+        energy_required = 1,
+        subgroup = "buildings-subgroup",
+        ingredients =
+        {
+            {"wood", 10}
+        },
+        results = 
+        {
+            {type="item", name="woodfloor", amount = 10}
+        }
+    },   
     
     }
 )

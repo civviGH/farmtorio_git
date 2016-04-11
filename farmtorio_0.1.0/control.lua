@@ -34,7 +34,7 @@ local seeddic = {
 }
 
 
--- looks confusing. is just checking the ring in a certain radius around the building in an akward manner. testing ingame shows best
+-- looks confusing. is just checking the ring in a certain radius around the building in an awkward manner. testing ingame shows best
 function check_ring(surface, tree, pos, ring)
     local posx = pos["x"]
     local posy = pos["y"]
@@ -42,7 +42,7 @@ function check_ring(surface, tree, pos, ring)
     for x=posx-ring, posx+ring, 1 do
         for y=posy-ring, posy+ring, 2*ring do
             if surface.can_place_entity{name = tree, position = {x, y}} then
-                if surface.get_tile(x, y).name ~= "concrete" then
+                if surface.get_tile(x, y).name ~= "concrete" and surface.get_tile(x, y).name ~= "woodfloor" then
                     return {x, y}
                 end
             end
@@ -53,7 +53,7 @@ function check_ring(surface, tree, pos, ring)
     for x=posx-ring, posx+ring, 2*ring do
         for y=posy-ring, posy+ring, 1 do
             if surface.can_place_entity{name = tree, position = {x, y}} then
-                if surface.get_tile(x, y).name ~= "concrete" then
+                if surface.get_tile(x, y).name ~= "concrete" and surface.get_tile(x, y).name ~= "woodfloor" then
                     return {x, y}
                 end
             end
@@ -66,7 +66,7 @@ end
 function find_non_concrete_position(surface, tree, pos, rad)
     for ring=1, rad, 1 do
         -- makes it so the positions next to the building get checked first. 
-        -- that way the forestry doesnt start on the top left of the rectangle it can place on making it akward.
+        -- that way the forestry doesnt start on the top left of the rectangle it can place on, making it less awkward.
         local tmp = check_ring(surface, tree, pos, ring) 
         
         -- got something? return it, else return nil
@@ -114,6 +114,17 @@ function get_seed_from_chest(inventory)
     return nil
 end
 
+-- find bushes in chest
+function get_bush_from_chest(inventory)
+    for k,_ in pairs(inventory) do
+        if string.find(k, "bush") ~= nil then
+            return k
+        end
+    end
+    return nil
+end
+
+-- all forestry buildings have their code here
 script.on_event(defines.events.on_sector_scanned, function(event)
     -- get radar that called event
     local radar = event.radar
@@ -127,6 +138,7 @@ script.on_event(defines.events.on_sector_scanned, function(event)
             -- check if/what seeds are in the chest. get inventory list
             local inventory = seedchest.get_inventory(defines.inventory.chest).get_contents()
             local seedtoplant = get_seed_from_chest(inventory)
+            local bushtoplant = get_bush_from_chest(inventory)
             
             -- seed found
             if seedtoplant ~= nil then
@@ -148,7 +160,21 @@ script.on_event(defines.events.on_sector_scanned, function(event)
                     -- remove seed
                     seedchest.get_inventory(defines.inventory.chest).remove({name=seedtoplant,count=1})
                 end
+            -- seeds are priority. if none are there, check for bushes
+            elseif  bushtoplant ~= nil then
+                local radius = 10
+                -- target for planting
+                local targetarea = find_non_concrete_position(radar.surface, bushtoplant, radar.position, radius)
+                
+                -- plant if there is a target area
+                if targetarea ~= nil then
+                    radar.surface.create_entity{name = bushtoplant, position = targetarea}
+                    
+                    -- remove seed
+                    seedchest.get_inventory(defines.inventory.chest).remove({name=bushtoplant,count=1})
+                end
             end
+            
         end
     elseif string.find(radar.name, "lumbermill") ~= nil then
         -- lumbermill building

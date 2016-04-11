@@ -5,6 +5,7 @@ data:extend(
         name = "nourishment-lab",
         enabled = "true",
         energy_required = 15,
+        subgroup = "buildings-subgroup",
         ingredients =
         {
             {"wood", 1}
@@ -15,6 +16,7 @@ data:extend(
         {
         type = "recipe",
         name = "findpotatoseeds",
+        subgroup = "seeds-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -27,6 +29,7 @@ data:extend(
         {
         type = "recipe",
         name = "findwheatseeds",
+        subgroup = "seeds-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -40,6 +43,7 @@ data:extend(
             {
         type = "recipe",
         name = "findsunflowerseeds",
+        subgroup = "seeds-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -52,6 +56,7 @@ data:extend(
             {
         type = "recipe",
         name = "chopped-potato",
+        subgroup = "farmcraft-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -67,6 +72,7 @@ data:extend(
             {
         type = "recipe",
         name = "forestry",
+        subgroup = "buildings-subgroup",
         enabled = "true",
         energy_required = 10,
         ingredients =
@@ -83,6 +89,7 @@ data:extend(
             {
         type = "recipe",
         name = "barn",
+        subgroup = "buildings-subgroup",
         enabled = "true",
         energy_required = 10,
         ingredients =
@@ -98,6 +105,7 @@ data:extend(
                 {
         type = "recipe",
         name = "forestrymk2",
+        subgroup = "buildings-subgroup",
         enabled = "true",
         energy_required = 10,
         ingredients =
@@ -115,6 +123,7 @@ data:extend(
                     {
         type = "recipe",
         name = "lumbermill",
+        subgroup = "buildings-subgroup",
         enabled = "true",
         energy_required = 10,
         ingredients =
@@ -131,6 +140,7 @@ data:extend(
                         {
         type = "recipe",
         name = "potatoseeds",
+        subgroup = "seeds-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -146,6 +156,7 @@ data:extend(
                             {
         type = "recipe",
         name = "sunflowerseeds",
+        subgroup = "seeds-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -161,7 +172,8 @@ data:extend(
     
                                 {
         type = "recipe",
-        name = "wheatseedsseeds",
+        name = "wheatseeds",
+        subgroup = "seeds-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -179,6 +191,7 @@ data:extend(
         type = "recipe",
         name = "hay",
         category = "advanced-crafting",
+        subgroup = "farmcraft-subgroup",
         enabled = "true",
         energy_required = 0.5,
         ingredients =
@@ -194,6 +207,7 @@ data:extend(
                                 {
         type = "recipe",
         name = "teleport-pill",
+        subgroup = "farmcraft-subgroup",
         enabled = "false",
         energy_required = 60,
         ingredients =
@@ -209,6 +223,7 @@ data:extend(
         {
         type = "recipe",
         name = "touchofsalt",
+        subgroup = "farmcraft-subgroup",
         enabled = "true",
         energy_required = 1,
         ingredients =
@@ -224,6 +239,7 @@ data:extend(
             {
         type = "recipe",
         name = "butter",
+        subgroup = "farmcraft-subgroup",
         enabled = "true",
         energy_required = 1,
         ingredients =
@@ -240,6 +256,7 @@ data:extend(
         type = "recipe",
         name = "cookie",
         category = "smelting",
+        subgroup = "farmcraft-subgroup",
         enabled = "true",
         energy_required = 6,
         ingredients =
@@ -256,6 +273,7 @@ data:extend(
         type = "recipe",
         name = "flour",
         category = "windmill",
+        subgroup = "farmcraft-subgroup",
         enabled = "true",
         energy_required = 2,
         ingredients =
@@ -271,6 +289,7 @@ data:extend(
                         {
         type = "recipe",
         name = "windmill",
+        subgroup = "buildings-subgroup",
         enabled = "true",
         energy_required = 10,
         ingredients =

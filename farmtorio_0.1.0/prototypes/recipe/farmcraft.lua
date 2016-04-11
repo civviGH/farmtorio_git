@@ -5,6 +5,7 @@ data:extend(
          name="milk",
          category="farmcraft",
          energy_required = 2,
+         subgroup = "farmcraft-subgroup",
          enabled="true",
          ingredients = {
              {type="item", name = "hay", amount = 8}
@@ -16,6 +17,7 @@ data:extend(
          name="egg",
          category="farmcraft",
          energy_required = 1,
+         subgroup = "farmcraft-subgroup",
          enabled="true",
          ingredients = {
              {type="item", name = "hay", amount = 5}

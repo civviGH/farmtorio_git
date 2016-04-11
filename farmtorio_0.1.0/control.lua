@@ -25,15 +25,20 @@ local trees = {
   "tree-09-red"
 }
 
+-- tells the forestry what plants belong to what seeds
 local seeddic = {
         ["potatoseeds"] = "potatoplant",
         ["sunflowerseeds"] = "sunflowerplant",
-        ["wheatseeds"] = "wheatplant"
+        ["wheatseeds"] = "wheatplant",
+        ["raw-wood"] = "tree-01"
 }
 
+
+-- looks confusing. is just checking the ring in a certain radius around the building in an akward manner. testing ingame shows best
 function check_ring(surface, tree, pos, ring)
     local posx = pos["x"]
     local posy = pos["y"]
+    -- top and bottom line
     for x=posx-ring, posx+ring, 1 do
         for y=posy-ring, posy+ring, 2*ring do
             if surface.can_place_entity{name = tree, position = {x, y}} then
@@ -43,6 +48,8 @@ function check_ring(surface, tree, pos, ring)
             end
         end
     end
+    
+    -- left and right line
     for x=posx-ring, posx+ring, 2*ring do
         for y=posy-ring, posy+ring, 1 do
             if surface.can_place_entity{name = tree, position = {x, y}} then
@@ -55,9 +62,14 @@ function check_ring(surface, tree, pos, ring)
     return nil
 end
 
+-- find a non concrete position to plant "tree" on
 function find_non_concrete_position(surface, tree, pos, rad)
     for ring=1, rad, 1 do
+        -- makes it so the positions next to the building get checked first. 
+        -- that way the forestry doesnt start on the top left of the rectangle it can place on making it akward.
         local tmp = check_ring(surface, tree, pos, ring) 
+        
+        -- got something? return it, else return nil
         if tmp ~= nil then
             return tmp
         end
@@ -65,25 +77,37 @@ function find_non_concrete_position(surface, tree, pos, rad)
     return nil
 end
 
+
+-- gets a (random) chest adjacent to a radar. if there are more than one, depends on the implementation of find_entities_filtered what chest is selected first.
 function find_target_chest(radar)
     local posx = radar.position["x"]
     local posy = radar.position["y"]
+    -- find anything that is a "container"
     local chests = radar.surface.find_entities_filtered{area= {{posx-2, posy-2},{posx+2, posy+2}},type="container"}
+    -- got something? return it, else nil
     if chests[1] ~= nil then return chests[1] end
     return nil
 end
 
+
+-- like the chest function, but finds any "tree" entity in a certain radious around the radar
 function find_tree_to_chop(radar, radius)
     local posx = radar.position["x"]
     local posy = radar.position["y"]
     local trees = radar.surface.find_entities_filtered{area={{posx-radius, posy-radius},{posx+radius, posy+radius}}, type="tree"}
+    -- got something? return it, else nil
     if trees[1] ~= nil then return trees[1] end
     return nil
 end
 
+-- find anything that is a seed in a chest. technically only returns the first it finds.
 function get_seed_from_chest(inventory)
     for k,_ in pairs(inventory) do
         if string.find(k, "seeds") ~= nil then
+            return k
+        end
+        -- raw wood counts as seeds for trees
+        if k == "raw-wood" then
             return k
         end
     end
@@ -107,12 +131,12 @@ script.on_event(defines.events.on_sector_scanned, function(event)
             -- seed found
             if seedtoplant ~= nil then
                 local plantname = seeddic[seedtoplant]
-                -- plant radius. tweak for mk > 1
+                -- plant radius. tweak for mk > 1 ... or dont?
                 local radius = 10
                 
-                if string.find(radar.name, "2") ~= nil then
-                    radius = radius * 2
-                end
+                --if string.find(radar.name, "2") ~= nil then
+                --    radius = radius * 2
+                --end
                 
                 -- target for planting
                 local targetarea = find_non_concrete_position(radar.surface, plantname, radar.position, radius)
@@ -156,15 +180,22 @@ script.on_event(defines.events.on_sector_scanned, function(event)
     
 end)
 
+
+-- code for the technologies
 script.on_event(defines.events.on_research_finished, function(event)
     local technology = event.research
+    -- get current modifier
     local modifier = game.forces["player"].manual_crafting_speed_modifier
+    
+    -- first occurence of the crafting speed technology sets the modifier from 0 to 1
     if technology.name == "craftingspeed1" then
         game.forces["player"].manual_crafting_speed_modifier = modifier + 1
+    -- every other technology doubles it
     elseif string.find(technology.name, "craftingspeed") ~= nil then
         game.forces["player"].manual_crafting_speed_modifier = modifier * 2
     end
     
+    -- adds gui elements if the teleport technology was researched
     if technology.name == "teleporttech" then
         for k,v in pairs(game.players) do
             v.gui.top.add{type = "button", name = "savebutton", caption = "save"}
@@ -173,10 +204,13 @@ script.on_event(defines.events.on_research_finished, function(event)
     end
 end)
 
+
+-- event i use for debbuging purposes
 script.on_event(defines.events.on_built_entity, function(event)
     
 end)
 
+-- the list with saved post location indexed by the player name.
 portlist = {}
 
 script.on_event(defines.events.on_gui_click, function(event)

@@ -38,6 +38,7 @@ data:extend(
     inputs =
     {
       "pommes",
+      "cookie",
     },
     researching_speed = 2,
     module_specification =

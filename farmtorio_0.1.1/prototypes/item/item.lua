@@ -295,7 +295,18 @@ data:extend({
       condition_size = 4,
       condition = { "water-tile" }
     },
-    stack_size = 500
+    stack_size = 200
+  },
+
+  {
+    type = "item",
+    name = "woodfence",
+    icon = "__farmtorio__/graphics/icons/woodfence.png",
+    flags = {"goes-to-quickbar"},
+    subgroup = "buildings-subgroup",
+    order = "g[woodfence]",
+    place_result = "woodfence",
+    stack_size = 200
   },
 
   {

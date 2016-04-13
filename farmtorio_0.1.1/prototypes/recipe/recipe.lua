@@ -371,7 +371,7 @@ data:extend({
         }
     },
 
-        {
+    {
         type = "recipe",
         name = "woodfloor",
         enabled = "true",
@@ -385,6 +385,14 @@ data:extend({
         {
             {type="item", name="woodfloor", amount = 10}
         }
+    },
+
+    {
+        type = "recipe",
+        name = "woodfence",
+        enabled = true,
+        ingredients = {{"wood", 5}},
+        result = "woodfence"
     },
 
 })

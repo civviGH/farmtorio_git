@@ -1,5 +1,5 @@
-data:extend(
-    {
+data:extend({
+
     {
         type = "recipe",
         name = "nourishment-lab",
@@ -11,9 +11,9 @@ data:extend(
             {"wood", 1}
         },
         result = "nourishment-lab"
-    },       
-    
-       {
+    },
+
+    {
         type = "recipe",
         name = "genelab",
         enabled = "true",
@@ -24,11 +24,12 @@ data:extend(
             {"wood", 1}
         },
         result = "genelab"
-    },    
-    
-        {
+    },
+
+    {
         type = "recipe",
         name = "findpotatoseeds",
+        icon = "__farmtorio__/graphics/icons/potatoseeds-dark.png",
         subgroup = "seeds-subgroup",
         enabled = "true",
         energy_required = 0.5,
@@ -37,9 +38,9 @@ data:extend(
             {"raw-wood", 50}
         },
         result = "potatoseeds"
-    },    
-        
-        {
+    },
+
+    {
         type = "recipe",
         name = "findwheatseeds",
         subgroup = "seeds-subgroup",
@@ -50,10 +51,9 @@ data:extend(
             {"raw-wood", 50}
         },
         result = "wheatseeds"
-    },    
-    
-    
-            {
+    },
+
+    {
         type = "recipe",
         name = "findsunflowerseeds",
         subgroup = "seeds-subgroup",
@@ -64,9 +64,9 @@ data:extend(
             {"raw-wood", 50}
         },
         result = "sunflowerseeds"
-    },    
-    
-            {
+    },
+
+    {
         type = "recipe",
         name = "chopped-potato",
         subgroup = "farmcraft-subgroup",
@@ -76,13 +76,13 @@ data:extend(
         {
             {"potato", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="chopped-potato", amount = 8}
         }
-    },      
-    
-            {
+    },
+
+    {
         type = "recipe",
         name = "forestry",
         subgroup = "buildings-subgroup",
@@ -92,14 +92,13 @@ data:extend(
         {
             {"potato", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="forestry", amount = 1}
         }
-    },   
-    
-        
-            {
+    },
+
+    {
         type = "recipe",
         name = "barn",
         subgroup = "buildings-subgroup",
@@ -109,13 +108,13 @@ data:extend(
         {
             {"potato", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="barn", amount = 1}
         }
-    },   
-    
-                {
+    },
+
+    {
         type = "recipe",
         name = "forestrymk2",
         subgroup = "buildings-subgroup",
@@ -126,14 +125,13 @@ data:extend(
             {"potato", 1},
             {"forestry", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="forestrymk2", amount = 1}
         }
-    },   
-    
-    
-                    {
+    },
+
+    {
         type = "recipe",
         name = "lumbermill",
         subgroup = "buildings-subgroup",
@@ -143,14 +141,13 @@ data:extend(
         {
             {"potato", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="lumbermill", amount = 1}
         }
-    },   
-    
-    
-                        {
+    },
+
+    {
         type = "recipe",
         name = "potatoseeds",
         subgroup = "seeds-subgroup",
@@ -160,13 +157,13 @@ data:extend(
         {
             {"potato", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="potatoseeds", amount = 1}
         }
-    },   
-    
-                            {
+    },
+
+    {
         type = "recipe",
         name = "sunflowerseeds",
         subgroup = "seeds-subgroup",
@@ -176,14 +173,13 @@ data:extend(
         {
             {"sunflower", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="sunflowerseeds", amount = 4}
         }
-    },  
-    
-    
-                                {
+    },
+
+    {
         type = "recipe",
         name = "wheatseeds",
         subgroup = "seeds-subgroup",
@@ -193,14 +189,13 @@ data:extend(
         {
             {"wheat", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="wheatseeds", amount = 3}
         }
-    },  
-    
-    
-                                    {
+    },
+
+    {
         type = "recipe",
         name = "hay",
         category = "advanced-crafting",
@@ -211,13 +206,13 @@ data:extend(
         {
             {"wheat", 2}
         },
-        results = 
+        results =
         {
             {type="item", name="hay", amount = 1}
         }
-    },  
-    
-                                {
+    },
+
+    {
         type = "recipe",
         name = "teleport-pill",
         subgroup = "farmcraft-subgroup",
@@ -227,13 +222,13 @@ data:extend(
         {
             {"sunflower", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="teleport-pill", amount = 1}
         }
-    },  
-    
-        {
+    },
+
+    {
         type = "recipe",
         name = "touchofsalt",
         subgroup = "farmcraft-subgroup",
@@ -243,13 +238,13 @@ data:extend(
         {
             {"salt", 1}
         },
-        results = 
+        results =
         {
             {type="item", name="touchofsalt", amount = 5}
         }
-    },  
-    
-            {
+    },
+
+    {
         type = "recipe",
         name = "butter",
         subgroup = "farmcraft-subgroup",
@@ -259,13 +254,13 @@ data:extend(
         {
             {"bottled-milk", 2}
         },
-        results = 
+        results =
         {
             {type="item", name="butter", amount = 1}
         }
-    },  
+    },
 
-                    {
+    {
         type = "recipe",
         name = "cookie",
         category = "smelting",
@@ -276,13 +271,13 @@ data:extend(
         {
             {type ="item", name="cookiedough", amount = 1}
         },
-        results = 
+        results =
         {
             {type="item", name="cookie", amount = 5}
         }
-    },  
-    
-                        {
+    },
+
+    {
         type = "recipe",
         name = "flour",
         category = "windmill",
@@ -293,13 +288,13 @@ data:extend(
         {
             {type ="item", name="wheat", amount = 2}
         },
-        results = 
+        results =
         {
             {type="item", name="flour", amount = 1}
         }
-    },  
-    
-                        {
+    },
+
+    {
         type = "recipe",
         name = "windmill",
         subgroup = "buildings-subgroup",
@@ -309,13 +304,13 @@ data:extend(
         {
             {type ="item", name="wood", amount = 1}
         },
-        results = 
+        results =
         {
             {type="item", name="windmill", amount = 1}
         }
-    },  
-	
-	{
+    },
+
+    {
         type = "recipe",
         name = "cowfarm",
         subgroup = "buildings-subgroup",
@@ -325,11 +320,11 @@ data:extend(
         {
             {type ="item", name="wood", amount = 1}
         },
-        results = 
+        results =
         {
             {type="item", name="cowfarm", amount = 1}
         }
-    },  
+    },
 	
 	{
         type = "recipe",
@@ -341,12 +336,12 @@ data:extend(
         {
             {type ="item", name="wood", amount = 1}
         },
-        results = 
+        results =
         {
             {type="item", name="slaughterhouse", amount = 1}
         }
-    },  	
-    
+    },
+
         {
         type = "recipe",
         name = "woodfloor",
@@ -357,11 +352,10 @@ data:extend(
         {
             {"wood", 10}
         },
-        results = 
+        results =
         {
             {type="item", name="woodfloor", amount = 10}
         }
-    },   
-    
-    }
-)
+    },
+
+})

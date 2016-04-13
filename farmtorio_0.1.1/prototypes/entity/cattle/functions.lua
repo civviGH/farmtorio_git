@@ -101,8 +101,8 @@ function biterrunanimation(scale, tint1, tint2)
         width = 169,
         height = 114,
         frame_count = 16,
-        direction_count = 16,
         shift = {scale * 0.714844, scale * -0.246094},
+        direction_count = 16,
         scale = scale,
         stripes =
         {
@@ -120,8 +120,8 @@ function biterrunanimation(scale, tint1, tint2)
       },
 
       {
-        filename = "__base__/graphics/entity/biter/biter-run-mask1.png",
         width = 105,
+        filename = "__base__/graphics/entity/biter/biter-run-mask1.png",
         height = 81,
         frame_count = 16,
         direction_count = 16,
@@ -536,6 +536,33 @@ function make_cow_calls(volume)
     {
       filename = "__farmtorio__/sound/cow/moo4.ogg",
       volume = volume
+    }
+  }
+end
+
+function cowanimation(scale, tint1)
+  return
+  {
+    layers=
+    {
+      {
+        width = 160,
+        height = 120,
+        frame_count = 1,
+        direction_count = 16,
+        shift = {scale * 0.1, scale * 0},
+        animation_speed = 0.3,
+        scale = scale,
+		tint = tint1,
+        stripes =
+        {
+         {
+          filename = "__farmtorio__/graphics/entity/cow/cow_move.png",
+          width_in_frames = 1,
+          height_in_frames = 16
+         }
+        }
+      }
     }
   }
 end

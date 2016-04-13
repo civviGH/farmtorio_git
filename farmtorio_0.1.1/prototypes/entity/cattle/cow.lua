@@ -1,7 +1,7 @@
 require("prototypes.entity.cattle.functions")
 
-cowscale = 0.5
-cow_tint1 = {r=0.56, g=0.46, b=0.42, a=0.65}
+cowscale = 1
+cow_tint1 = {r=0.9, g=0.3, b=0.9, a=1}
 cow_tint2 = {r=1, g=0.63, b=0, a=0.4}
 
 data:extend({
@@ -25,7 +25,8 @@ data:extend({
       ammo_category = "melee",
       ammo_type = make_unit_melee_ammo_type(1),
       sound = make_cow_roars(1),
-      animation = biterattackanimation(cowscale, cow_tint1, cow_tint2)
+      --animation = biterattackanimation(cowscale, cow_tint1, cow_tint2)
+	  animation = cowanimation(cowscale, cow_tint1)
     },
     vision_distance = 3,
     movement_speed = 0.1,
@@ -36,7 +37,8 @@ data:extend({
     dying_explosion = "blood-explosion-big",
     dying_sound =  make_cow_dying_sounds(1),
     working_sound =  make_cow_calls(1),
-    run_animation = biterrunanimation(cowscale, cow_tint1, cow_tint2)
+    --run_animation = biterrunanimation(cowscale, cow_tint1, cow_tint2)
+	run_animation = cowanimation(cowscale, cow_tint1)
 	}
 
 })

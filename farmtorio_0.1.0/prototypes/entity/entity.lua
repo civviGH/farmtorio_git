@@ -273,7 +273,84 @@ data:extend(
       line_length = 1
     },
   },
-
+  
+         {
+    type = "radar",
+    name = "cowfarm",
+    icon = "__farmtorio__/graphics/icons/cowfarm.png",
+    flags = {"placeable-player", "player-creation"},
+    minable = {hardness = 0.2, mining_time = 0.5, result = "cowfarm"},
+    max_health = 150,
+    corpse = "medium-remnants",
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 70
+      }
+    },
+    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
+    selection_box = {{-1, -1}, {1, 1}},
+    energy_per_sector = "1000kJ",
+    max_distance_of_sector_revealed = 0,
+    max_distance_of_nearby_sector_revealed = 0,
+    energy_per_nearby_scan = "1kJ",
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    energy_usage = "50kW",
+    pictures =
+    {
+      filename = "__farmtorio__/graphics/entity/forestry/cowfarm.png",
+      priority = "low",
+      width = 64,
+      height = 64,
+      apply_projection = false,
+      direction_count = 1
+    },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
+  },
+        
+		{
+    type = "radar",
+    name = "slaughterhouse",
+    icon = "__farmtorio__/graphics/icons/slaughterhouse.png",
+    flags = {"placeable-player", "player-creation"},
+    minable = {hardness = 0.2, mining_time = 0.5, result = "slaughterhouse"},
+    max_health = 150,
+    corpse = "medium-remnants",
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 70
+      }
+    },
+    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
+    selection_box = {{-1, -1}, {1, 1}},
+    energy_per_sector = "1000kJ",
+    max_distance_of_sector_revealed = 0,
+    max_distance_of_nearby_sector_revealed = 0,
+    energy_per_nearby_scan = "1kJ",
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    energy_usage = "500kW",
+    pictures =
+    {
+      filename = "__farmtorio__/graphics/entity/forestry/slaughterhouse.png",
+      priority = "low",
+      width = 64,
+      height = 64,
+      apply_projection = false,
+      direction_count = 1
+    },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
+  },
 }
 )
 

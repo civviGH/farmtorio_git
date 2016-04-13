@@ -301,6 +301,38 @@ data:extend(
             {type="item", name="windmill", amount = 1}
         }
     },  
+	
+	{
+        type = "recipe",
+        name = "cowfarm",
+        subgroup = "buildings-subgroup",
+        enabled = "true",
+        energy_required = 10,
+        ingredients =
+        {
+            {type ="item", name="wood", amount = 1}
+        },
+        results = 
+        {
+            {type="item", name="cowfarm", amount = 1}
+        }
+    },  
+	
+	{
+        type = "recipe",
+        name = "slaughterhouse",
+        subgroup = "buildings-subgroup",
+        enabled = "true",
+        energy_required = 10,
+        ingredients =
+        {
+            {type ="item", name="wood", amount = 1}
+        },
+        results = 
+        {
+            {type="item", name="slaughterhouse", amount = 1}
+        }
+    },  	
     
     }
 )

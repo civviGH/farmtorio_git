@@ -79,6 +79,7 @@ end
 
 
 -- gets a (random) chest adjacent to a radar. if there are more than one, depends on the implementation of find_entities_filtered what chest is selected first.
+-- needs rework for buildings > 2x2
 function find_target_chest(radar)
     local posx = radar.position["x"]
     local posy = radar.position["y"]
@@ -176,6 +177,43 @@ script.on_event(defines.events.on_sector_scanned, function(event)
                 end
             end
         end
+	elseif string.find(radar.name, "cowfarm") ~= nil then
+		-- cowfarm building
+		local surface = radar.surface
+		
+		-- find chest nearby
+		local targetchest = find_target_chest(radar)
+		
+		-- found a chest?
+		if targetchest ~= nil then
+			-- check if resources for cowspawn are in chest
+			if targetchest.get_inventory(defines.inventory.chest).get_item_count("hay") >= 35 then
+				-- check for targetlocation
+				local targetlocation = surface.find_non_colliding_position("cow", radar.position, 3, 1)
+				if targetlocation ~= nil then
+					-- spawn cow, remove resources
+					surface.create_entity{name = "cow", position = targetlocation, force = "neutral"}
+					targetchest.get_inventory(defines.inventory.chest).remove({name="hay", count=35})
+				end
+			end
+		end
+	elseif string.find(radar.name, "slaughterhouse") ~= nil then
+		-- slaughterhouse found
+		local positionx = radar.position.x
+		local positiony = radar.position.y
+		-- find chest to put meat in
+		local targetchest = find_target_chest(radar)
+		if targetchest ~= nil then
+			-- does steak fit?
+			if targetchest.get_inventory(defines.inventory.chest).can_insert({name="steak",count=5}) then
+				local targetentity = radar.surface.find_entities_filtered{area = {{positionx-2,positiony-2},{positionx+2,positiony+2}}, name="cow"}
+				if targetentity[1] ~= nil then
+					-- kill the cow, put steak in chest
+					targetentity[1].die()
+					targetchest.insert({name="steak", count = 5})
+				end
+			end
+		end
     end
     
 end)

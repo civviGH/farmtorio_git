@@ -267,7 +267,6 @@ data:extend(
     stack_size = 200
   },
   
-<<<<<<< HEAD
         {
     type = "item",
     name = "woodfloor",
@@ -282,13 +281,14 @@ data:extend(
       condition = { "water-tile" }
     },
     stack_size = 500
-=======
+	},
+	
                {
     type = "item",
     name = "cowfarm",
     icon = "__farmtorio__/graphics/icons/cowfarm.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "forestry",
+    subgroup = "buildings-subgroup",
     order = "f[cowfarm]",
     place_result = "cowfarm",
     stack_size = 50
@@ -299,7 +299,7 @@ data:extend(
     name = "slaughterhouse",
     icon = "__farmtorio__/graphics/icons/slaughterhouse.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "forestry",
+    subgroup = "buildings-subgroup",
     order = "g[slaughterhouse]",
     place_result = "slaughterhouse",
     stack_size = 50
@@ -310,10 +310,9 @@ data:extend(
     name = "steak",
     icon = "__farmtorio__/graphics/icons/steak.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "food",
+    subgroup = "farmcraft-subgroup",
     order = "n[steak]",
     stack_size = 200
->>>>>>> origin/master
   },
   
 }   

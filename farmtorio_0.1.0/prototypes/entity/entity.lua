@@ -273,10 +273,8 @@ data:extend(
       line_length = 1
     },
   },
-<<<<<<< HEAD
 
-
-{
+      {
     type = "assembling-machine",
     name = "genelab",
     icon = "__farmtorio__/graphics/icons/genelab.png",
@@ -285,17 +283,6 @@ data:extend(
     max_health = 200,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
-=======
-  
-         {
-    type = "radar",
-    name = "cowfarm",
-    icon = "__farmtorio__/graphics/icons/cowfarm.png",
-    flags = {"placeable-player", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "cowfarm"},
-    max_health = 150,
-    corpse = "medium-remnants",
->>>>>>> origin/master
     resistances =
     {
       {
@@ -303,25 +290,15 @@ data:extend(
         percent = 70
       }
     },
-<<<<<<< HEAD
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     crafting_categories = {"genelab"},
     crafting_speed = 1,
-=======
-    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
-    selection_box = {{-1, -1}, {1, 1}},
-    energy_per_sector = "1000kJ",
-    max_distance_of_sector_revealed = 0,
-    max_distance_of_nearby_sector_revealed = 0,
-    energy_per_nearby_scan = "1kJ",
->>>>>>> origin/master
     energy_source =
     {
       type = "electric",
       usage_priority = "secondary-input"
     },
-<<<<<<< HEAD
     energy_usage = "150kW",
     ingredient_count = 2,
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 }, -- todo
@@ -337,23 +314,9 @@ data:extend(
       line_length = 1
     },
   },
-
-
-=======
-    energy_usage = "50kW",
-    pictures =
-    {
-      filename = "__farmtorio__/graphics/entity/forestry/cowfarm.png",
-      priority = "low",
-      width = 64,
-      height = 64,
-      apply_projection = false,
-      direction_count = 1
-    },
-    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
-  },
-        
-		{
+  
+  
+	{
     type = "radar",
     name = "slaughterhouse",
     icon = "__farmtorio__/graphics/icons/slaughterhouse.png",
@@ -391,7 +354,45 @@ data:extend(
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
   },
->>>>>>> origin/master
+  
+  	{
+    type = "radar",
+    name = "cowfarm",
+    icon = "__farmtorio__/graphics/icons/cowfarm.png",
+    flags = {"placeable-player", "player-creation"},
+    minable = {hardness = 0.2, mining_time = 0.5, result = "cowfarm"},
+    max_health = 150,
+    corpse = "medium-remnants",
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 70
+      }
+    },
+    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
+    selection_box = {{-1, -1}, {1, 1}},
+    energy_per_sector = "1000kJ",
+    max_distance_of_sector_revealed = 0,
+    max_distance_of_nearby_sector_revealed = 0,
+    energy_per_nearby_scan = "1kJ",
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input"
+    },
+    energy_usage = "50kW",
+    pictures =
+    {
+      filename = "__farmtorio__/graphics/entity/forestry/cowfarm.png",
+      priority = "low",
+      width = 64,
+      height = 64,
+      apply_projection = false,
+      direction_count = 1
+    },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
+  },
 }
 )
 

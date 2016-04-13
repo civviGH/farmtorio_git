@@ -185,7 +185,7 @@ script.on_event(defines.events.on_sector_scanned, function(event)
         if targetchest ~= nil then
             -- find tree/plant, check what product it gives
             local radius = 10
-            -- tweak radius for mk > 1
+            -- tweak radius for mk > 1... or dont?
             local treetochop = find_tree_to_chop(radar, radius)
             if treetochop ~= nil then
                 local producttoget = treetochop.prototype.mineable_properties["products"][1]["name"]

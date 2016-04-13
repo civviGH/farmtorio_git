@@ -24,7 +24,7 @@ data:extend({
       cooldown = 35,
       ammo_category = "melee",
       ammo_type = make_unit_melee_ammo_type(1),
-      sound = make_biter_roars(0),
+      sound = make_cow_roars(1),
       animation = biterattackanimation(cowscale, cow_tint1, cow_tint2)
     },
     vision_distance = 3,
@@ -34,8 +34,8 @@ data:extend({
     distraction_cooldown = 300,
     corpse = nil,
     dying_explosion = "blood-explosion-big",
-    dying_sound =  make_biter_dying_sounds(0),
-    working_sound =  make_biter_calls(0),
+    dying_sound =  make_cow_dying_sounds(1),
+    working_sound =  make_cow_calls(1),
     run_animation = biterrunanimation(cowscale, cow_tint1, cow_tint2)
 	}
 

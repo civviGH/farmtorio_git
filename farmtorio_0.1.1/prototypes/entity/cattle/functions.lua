@@ -485,3 +485,57 @@ function make_unit_melee_ammo_type(damagevalue)
     }
   }
 end
+
+function make_cow_roars(volume)
+  return
+  {
+    {
+      filename = "__farmtorio__/sound/cow/moo1.ogg",
+      volume = volume
+    },
+    {
+      filename = "__farmtorio__/sound/cow/moo2.ogg",
+      volume = volume
+    },
+    {
+      filename = "__farmtorio__/sound/cow/moo3.ogg",
+      volume = volume
+    },
+    {
+      filename = "__farmtorio__/sound/cow/moo4.ogg",
+      volume = volume
+    }
+  }
+end
+
+function make_cow_dying_sounds(volume)
+  return
+  {
+    {
+      filename = "__farmtorio__/sound/cow/moodie.ogg",
+      volume = volume
+    }
+  }
+end
+
+function make_cow_calls(volume)
+  return
+  {
+    {
+      filename = "__farmtorio__/sound/cow/moo1.ogg",
+      volume = volume
+    },
+    {
+      filename = "__farmtorio__/sound/cow/moo2.ogg",
+      volume = volume
+    },
+    {
+      filename = "__farmtorio__/sound/cow/moo3.ogg",
+      volume = volume
+    },
+    {
+      filename = "__farmtorio__/sound/cow/moo4.ogg",
+      volume = volume
+    }
+  }
+end

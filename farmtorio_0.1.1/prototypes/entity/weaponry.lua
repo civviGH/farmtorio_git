@@ -6,7 +6,7 @@ data:extend({
     name = "pumpkin-turret",
     icon = "__base__/graphics/icons/gun-turret.png",
     flags = {"placeable-player", "player-creation"},
-    minable = {mining_time = 0.5, result = "gun-turret"},
+    minable = {mining_time = 0.5, result = "pumpkin-turret"},
     max_health = 400,
     corpse = "medium-remnants",
     collision_box = {{-0.7, -0.7 }, {0.7, 0.7}},

@@ -15,6 +15,7 @@ data:extend({
     type = "item",
     name = "potato",
     icon = "__farmtorio__/graphics/icons/potato-dark.png",
+	fuel_value = "2MJ",
     flags = {"goes-to-main-inventory"},
     subgroup = "farmcraft-subgroup",
     order = "a[potato]",
@@ -57,7 +58,7 @@ data:extend({
     icon = "__farmtorio__/graphics/icons/pommes.png",
     flags = {"goes-to-main-inventory"},
     subgroup = "science-subgroup",
-    order = "a",
+    order = "b",
     stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount"
@@ -359,10 +360,20 @@ data:extend({
     icon = "__farmtorio__/graphics/icons/sixpack.png",
     flags = {"goes-to-main-inventory"},
     subgroup = "science-subgroup",
-    order = "c",
+    order = "a",
     stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount"
   },
   
+    {
+    type = "item",
+    name = "tractor",
+    icon = "__base__/graphics/icons/car.png",
+    flags = {"goes-to-quickbar"},
+    subgroup = "farmcraft-subgroup",
+    order = "a",
+	place_result = "tractor",
+    stack_size = 200
+  },
 })

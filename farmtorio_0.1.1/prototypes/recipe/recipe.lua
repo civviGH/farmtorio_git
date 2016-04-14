@@ -410,6 +410,22 @@ data:extend({
             {type="item", name="beercan", amount = 1}
         }
     },
+	
+    {
+        type = "recipe",
+        name = "tractor",
+        enabled = "true",
+        energy_required = 1,
+        subgroup = "farmcraft-subgroup",
+        ingredients =
+        {
+            {"iron-plate", 3}
+        },
+        results =
+        {
+            {type="item", name="tractor", amount = 1}
+        }
+    },
 
 
 })

@@ -130,6 +130,10 @@ function get_bush_from_chest(inventory)
     return nil
 end
 
+function start_plowing(player)
+	player.print("this button is just a dummy for now")
+end
+
 -- all forestry buildings have their code here
 script.on_event(defines.events.on_sector_scanned, function(event)
     -- get radar that called event
@@ -265,6 +269,7 @@ script.on_event(defines.events.on_research_finished, function(event)
     end
     
     -- adds gui elements if the teleport technology was researched
+	-- does this work if it researched when player2 is not on the server, but joins afterwards?
     if technology.name == "teleporttech" then
         for k,v in pairs(game.players) do
             v.gui.top.add{type = "button", name = "savebutton", caption = "save"}
@@ -276,7 +281,10 @@ end)
 
 -- event i use for debbuging purposes
 script.on_event(defines.events.on_built_entity, function(event)
-    
+    local player = game.players[event.player_index]
+	for k,v in pairs(player.gui.left.children_names) do
+		player.print(v)
+	end
 end)
 
 -- the list with saved post location indexed by the player name.
@@ -292,10 +300,8 @@ script.on_event(defines.events.on_gui_click, function(event)
         -- add current position to the table indexed by player name
         portlist[player.name] = player.position
         player.print("Saved position: x = " .. player.position["x"] .. " | y = " .. player.position["y"])
-    end
-    
     -- portbutton pressed
-    if event.element.name == "portbutton" then
+    elseif event.element.name == "portbutton" then
     
         -- get saved position if there is one
         local positiontoport = portlist[player.name]
@@ -317,5 +323,31 @@ script.on_event(defines.events.on_gui_click, function(event)
         else 
             player.print("Teleport Pill needed.")
         end
+	-- some1 wants to plow
+	elseif event.element.name == "plowbutton" then
+		start_plowing(player)
     end
+end)
+
+
+script.on_event(defines.events.on_player_driving_changed_state, function(event)
+	-- get player name that invoked the event
+	local player = game.players[event.player_index]
+	-- sitting in a vehicle=
+	if player.vehicle ~= nil then
+		-- is it a tractor?
+		if player.vehicle.name == "tractor" then
+			player.gui.left.add{type = "button", name = "plowbutton", caption = "plow"}
+		else
+			-- so no tractor
+		end
+	else
+		-- so no vehicle, you just existed one
+		-- destroy gui elements, if existent
+		if #player.gui.left.children_names > 0 then
+			-- if there is a child, we assume its plowbutton
+			player.gui.left.plowbutton.destroy()
+		end
+	end
+	
 end)

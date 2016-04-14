@@ -233,11 +233,11 @@ data:extend({
         energy_required = 0.5,
         ingredients =
         {
-            {"wheat", 2}
+            {"wheat", 1}
         },
         results =
         {
-            {type="item", name="hay", amount = 1}
+            {type="item", name="hay", amount = 3}
         }
     },
 

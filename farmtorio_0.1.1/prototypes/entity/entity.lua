@@ -37,8 +37,9 @@ data:extend(
     energy_usage = "150kW",
     inputs =
     {
+	  "sixpack",
       "pommes",
-      "cookie",
+      "cookie"
     },
     researching_speed = 2,
     module_specification =

@@ -56,8 +56,8 @@ data:extend({
     name = "pommes",
     icon = "__farmtorio__/graphics/icons/pommes.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "farmcraft-subgroup",
-    order = "c[pommes]",
+    subgroup = "science-subgroup",
+    order = "a",
     stack_size = 200,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount"
@@ -241,13 +241,15 @@ data:extend({
   },
 
   {
-    type = "item",
+    type = "tool",
     name = "cookie",
     icon = "__farmtorio__/graphics/icons/cookie.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "farmcraft-subgroup",
-    order = "k[cookie]",
-    stack_size = 200
+    subgroup = "science-subgroup",
+    order = "c",
+    stack_size = 200,    
+	durability = 1,
+    durability_description_key = "description.science-pack-remaining-amount"
   },
 
   {
@@ -339,6 +341,28 @@ data:extend({
     subgroup = "farmcraft-subgroup",
     order = "n[steak]",
     stack_size = 200
+  },
+  
+  {
+    type = "item",
+    name = "beercan",
+    icon = "__farmtorio__/graphics/icons/beercan.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "farmcraft-subgroup",
+    order = "o[beercan]",
+    stack_size = 200
+  },
+  
+  {
+    type = "tool",
+    name = "sixpack",
+    icon = "__farmtorio__/graphics/icons/sixpack.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "science-subgroup",
+    order = "c",
+    stack_size = 200,
+    durability = 1,
+    durability_description_key = "description.science-pack-remaining-amount"
   },
   
 })

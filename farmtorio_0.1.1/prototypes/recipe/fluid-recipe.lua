@@ -6,7 +6,7 @@ data:extend({
     category = "crafting-with-fluid",
     energy_required = 1,
     enabled = "true",
-    subgroup = "farmcraft-subgroup",
+    subgroup = "science-subgroup",
     ingredients =
     {
       {type="fluid", name="fryer-fat", amount=2},
@@ -76,5 +76,42 @@ data:extend({
         {type="item", name="cookiedough", amount = 1}
     }
   },
+  
+    {
+    type = "recipe",
+    name = "beer",
+    category = "crafting-with-fluid",
+    enabled = "true",
+    energy_required = 1, -- much! higher
+    subgroup = "farmcraft-subgroup",
+    ingredients =
+    {
+        {type = "item", name = "wheat", amount = 20},
+		{type = "fluid", name = "water", amount = 50}
+    },
+    results =
+    {
+        {type="fluid", name="beer", amount = 50}
+    }
+  },
+  
+	
+    {
+	type = "recipe",
+	name = "sixpack",
+	enabled = "true",
+	category = "crafting-with-fluid",
+	energy_required = 3,
+	subgroup = "science-subgroup",
+	ingredients =
+	{
+		{"beercan", 6},
+		{type = "fluid", name = "beer", amount = 6}
+	},
+	results =
+	{
+		{type="item", name="sixpack", amount = 1}
+	}
+    },
 
 })

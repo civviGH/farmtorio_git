@@ -293,7 +293,7 @@ data:extend({
         type = "recipe",
         name = "cookie",
         category = "smelting",
-        subgroup = "farmcraft-subgroup",
+        subgroup = "science-subgroup",
         enabled = "true",
         energy_required = 6,
         ingredients =
@@ -394,5 +394,22 @@ data:extend({
         ingredients = {{"wood", 5}},
         result = "woodfence"
     },
+	
+    {
+        type = "recipe",
+        name = "beercan",
+        enabled = "true",
+        energy_required = 1,
+        subgroup = "farmcraft-subgroup",
+        ingredients =
+        {
+            {"iron-plate", 3}
+        },
+        results =
+        {
+            {type="item", name="beercan", amount = 1}
+        }
+    },
+
 
 })

@@ -44,9 +44,16 @@ data:extend({
   
     {
     type = "item-subgroup",
-    name = "ammo-subgroup",
+    name = "science-subgroup",
     group = "farmtorio-group",
     order = "f-a"
+  },
+  
+    {
+    type = "item-subgroup",
+    name = "ammo-subgroup",
+    group = "farmtorio-group",
+    order = "g-a"
   },
   
   { 

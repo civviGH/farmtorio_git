@@ -35,7 +35,7 @@ data:extend({
     name = "pumpkinseeds",
     icon = "__farmtorio__/graphics/icons/pumpkinseeds.png",
     flags = {"goes-to-quickbar"},
-    subgroup = "farmcraft-subgroup",
+    subgroup = "seeds-subgroup",
     order = "f",
 	place_result = "pumpkinplant",
     stack_size = 200

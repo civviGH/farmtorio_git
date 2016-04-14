@@ -1,7 +1,7 @@
 require("prototypes.entity.cattle.functions")
 
 cowscale = 1
-cow_tint1 = {r=0.9, g=0.3, b=0.9, a=1}
+cow_tint1 = {r=1, g=1, b=1, a=1}
 cow_tint2 = {r=1, g=0.63, b=0, a=0.4}
 
 data:extend({
@@ -35,6 +35,15 @@ data:extend({
     distraction_cooldown = 300,
     corpse = nil,
     dying_explosion = "blood-explosion-big",
+	loot =
+    {
+      {
+        count_max = 5,
+        count_min = 5,
+        item = "steak",
+        probability = 1
+      }
+    },
     dying_sound =  make_cow_dying_sounds(1),
     working_sound =  make_cow_calls(1),
     --run_animation = biterrunanimation(cowscale, cow_tint1, cow_tint2)

@@ -548,17 +548,17 @@ function cowanimation(scale, tint1)
       {
         width = 160,
         height = 120,
-        frame_count = 1,
+        frame_count = 8,
         direction_count = 16,
         shift = {scale * 0.1, scale * 0},
-        animation_speed = 0.3,
+        animation_speed = 0.6,
         scale = scale,
 		tint = tint1,
         stripes =
         {
          {
           filename = "__farmtorio__/graphics/entity/cow/cow_move.png",
-          width_in_frames = 1,
+          width_in_frames = 8,
           height_in_frames = 16
          }
         }

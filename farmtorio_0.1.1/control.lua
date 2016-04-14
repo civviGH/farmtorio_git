@@ -30,7 +30,8 @@ local seeddic = {
         ["potatoseeds"] = "potatoplant",
         ["sunflowerseeds"] = "sunflowerplant",
         ["wheatseeds"] = "wheatplant",
-        ["raw-wood"] = "tree-01"
+        ["raw-wood"] = "tree-01",
+		["pumpkinseeds"] = "pumpkinplant"
 }
 
 

@@ -20,6 +20,25 @@ data:extend(
     order = "a[potato]",
     stack_size = 200
   },
+  {
+    type = "item",
+    name = "pumpkin",
+    icon = "__farmtorio__/graphics/icons/pumpkin.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "farmcraft-subgroup",
+    order = "f",
+    stack_size = 200
+  },
+  {
+    type = "item",
+    name = "pumpkinseeds",
+    icon = "__farmtorio__/graphics/icons/pumpkinseeds.png",
+    flags = {"goes-to-quickbar"},
+    subgroup = "farmcraft-subgroup",
+    order = "f",
+	place_result = "pumpkinplant",
+    stack_size = 200
+  },
     {
     type = "item",
     name = "chopped-potato",

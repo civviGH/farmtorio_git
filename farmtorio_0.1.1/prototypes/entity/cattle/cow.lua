@@ -35,15 +35,6 @@ data:extend({
     distraction_cooldown = 300,
     corpse = nil,
     dying_explosion = "blood-explosion-big",
-	loot =
-    {
-      {
-        count_max = 5,
-        count_min = 5,
-        item = "steak",
-        probability = 1
-      }
-    },
     dying_sound =  make_cow_dying_sounds(1),
     working_sound =  make_cow_calls(1),
     --run_animation = biterrunanimation(cowscale, cow_tint1, cow_tint2)

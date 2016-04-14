@@ -42,6 +42,13 @@ data:extend({
     order = "e-a"
   },
   
+    {
+    type = "item-subgroup",
+    name = "ammo-subgroup",
+    group = "farmtorio-group",
+    order = "f-a"
+  },
+  
   { 
       type = "recipe-category",
       name = "farmcraft"

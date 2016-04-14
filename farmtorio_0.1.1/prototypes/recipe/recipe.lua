@@ -52,6 +52,18 @@ data:extend(
         result = "wheatseeds"
     },    
     
+        {
+        type = "recipe",
+        name = "findpupmkinseeds",
+        subgroup = "seeds-subgroup",
+        enabled = "true",
+        energy_required = 0.5,
+        ingredients =
+        {
+            {"raw-wood", 50}
+        },
+        result = "pumpkinseeds"
+    },
     
             {
         type = "recipe",
@@ -165,6 +177,24 @@ data:extend(
             {type="item", name="potatoseeds", amount = 1}
         }
     },   
+	
+    {
+        type = "recipe",
+        name = "pumpkinseeds",
+        subgroup = "seeds-subgroup",
+        enabled = "true",
+        energy_required = 5,
+        ingredients =
+        {
+            {"pumpkin", 1}
+        },
+        results = 
+        {
+            {type="item", name="pumpkinseeds", amount = 10}
+        }
+    },   
+    
+	
     
                             {
         type = "recipe",

@@ -87,7 +87,11 @@ function find_target_chest(radar)
     -- find anything that is a "container"
     local chests = radar.surface.find_entities_filtered{area= {{posx-2, posy-2},{posx+2, posy+2}},type="container"}
     -- got something? return it, else nil
-    if chests[1] ~= nil then return chests[1] end
+    if chests[1] ~= nil then return chests[1] 
+	else 
+		chests = radar.surface.find_entities_filtered{area= {{posx-2, posy-2},{posx+2, posy+2}},type="logistic-container"}
+			if chests[1] ~= nil then return chests[1] end
+	end
     return nil
 end
 

@@ -427,5 +427,29 @@ data:extend({
     }
   },
 
+  {
+    type = "recipe",
+    name = "iron-ore-powder",
+    enabled = "true",
+    energy_required = 0.5,
+    subgroup = "farmcraft-subgroup",
+    ingredients =
+    {
+      {"iron-ore-powder", 5}
+    },
+    results =
+    {
+      {type="item", name="iron-ore", amount = 1}
+    }
+  },
+
+  {
+    type = "recipe",
+    name = "iron-plate-from-powder",
+    category = "smelting",
+    energy_required = 3.5,
+    ingredients = {{"iron-ore-powder", 5}},
+    result = "iron-plate"
+  },
 
 })

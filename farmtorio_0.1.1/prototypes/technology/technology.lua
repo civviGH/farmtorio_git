@@ -126,7 +126,7 @@ data:extend({
     {      
       {
         type = "unlock-recipe",
-        recipe = "ironorebush"
+        recipe = "iron-ore-bush"
       }
     },
     unit =

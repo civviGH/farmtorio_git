@@ -18,4 +18,14 @@ data:extend({
         order = "a[iron-ore-powder]",
         stack_size = 200
     },
+    {
+        type = "item",
+        name = "photovoltaic-plant-1",
+        icon = "__farmtorio__/graphics/icons/photovoltaic-plant.png",
+        flags = { "goes-to-quickbar" },
+        subgroup = "bushes-subgroup",
+        order = "c",
+        place_result = "photovoltaic-plant-1",
+        stack_size = 200
+    },
 })

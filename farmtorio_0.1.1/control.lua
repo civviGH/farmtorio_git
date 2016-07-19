@@ -1,4 +1,5 @@
 require "defines"
+require "grow"
 
 -- list of trees
 local trees = {
@@ -31,7 +32,8 @@ local seeddic = {
         ["sunflowerseeds"] = "sunflowerplant",
         ["wheatseeds"] = "wheatplant",
         ["raw-wood"] = "tree-01",
-		["pumpkinseeds"] = "pumpkinplant"
+		["pumpkinseeds"] = "pumpkinplant",
+        ["photovoltaic-plant-1"] = "photovoltaic-plant-1"
 }
 
 
@@ -49,7 +51,7 @@ function check_ring(surface, tree, pos, ring)
             end
         end
     end
-    
+
     -- left and right line
     for x=posx-ring, posx+ring, 2*ring do
         for y=posy-ring, posy+ring, 1 do
@@ -68,8 +70,8 @@ function find_non_concrete_position(surface, tree, pos, rad)
     for ring=1, rad, 1 do
         -- makes it so the positions next to the building get checked first. 
         -- that way the forestry doesnt start on the top left of the rectangle it can place on, making it less awkward.
-        local tmp = check_ring(surface, tree, pos, ring) 
-        
+        local tmp = check_ring(surface, tree, pos, ring)
+
         -- got something? return it, else return nil
         if tmp ~= nil then
             return tmp
@@ -87,14 +89,13 @@ function find_target_chest(radar)
     -- find anything that is a "container"
     local chests = radar.surface.find_entities_filtered{area= {{posx-2, posy-2},{posx+2, posy+2}},type="container"}
     -- got something? return it, else nil
-    if chests[1] ~= nil then return chests[1] 
-	else 
+    if chests[1] ~= nil then return chests[1]
+	else
 		chests = radar.surface.find_entities_filtered{area= {{posx-2, posy-2},{posx+2, posy+2}},type="logistic-container"}
 			if chests[1] ~= nil then return chests[1] end
 	end
     return nil
 end
-
 
 -- like the chest function, but finds any "tree" entity in a certain radious around the radar
 function find_tree_to_chop(radar, radius)
@@ -116,6 +117,10 @@ function get_seed_from_chest(inventory)
         if k == "raw-wood" then
             return k
         end
+        -- photovoltaic plant themselves
+        if k == "photovoltaic-plant-1" then
+            return k
+        end
     end
     return nil
 end
@@ -130,65 +135,71 @@ function get_bush_from_chest(inventory)
     return nil
 end
 
-function start_plowing(player)
-	player.print("this button is just a dummy for now")
-end
+script.on_event(defines.events.on_built_entity, function(event)
+    start_growing(event.created_entity, event.tick)
+end)
+
+script.on_event(defines.events.on_robot_built_entity, function(event)
+    start_growing(event.created_entity, event.tick)
+end)
 
 -- all forestry buildings have their code here
 script.on_event(defines.events.on_sector_scanned, function(event)
     -- get radar that called event
     local radar = event.radar
-    
+
     -- check which type of radar called the event
     if string.find(radar.name, "forestry") ~= nil then
         -- forestry building
         -- find chest with seeds nearby
         local seedchest = find_target_chest(radar)
-        if seedchest ~= nil then 
+        if seedchest ~= nil then
             -- check if/what seeds are in the chest. get inventory list
             local inventory = seedchest.get_inventory(defines.inventory.chest).get_contents()
             local seedtoplant = get_seed_from_chest(inventory)
             local bushtoplant = get_bush_from_chest(inventory)
-            
+
             -- seed found
             if seedtoplant ~= nil then
                 local plantname = seeddic[seedtoplant]
                 -- plant radius. tweak for mk > 1 ... or dont?
                 local radius = 10
-                
+
                 --if string.find(radar.name, "2") ~= nil then
                 --    radius = radius * 2
                 --end
-                
+
                 -- target for planting
                 local targetarea = find_non_concrete_position(radar.surface, plantname, radar.position, radius)
-                
+
                 -- plant if there is a target area
                 if targetarea ~= nil then
-                    radar.surface.create_entity{name = plantname, position = targetarea}
-                    
+                    local created_entity = radar.surface.create_entity { name = plantname, position = targetarea }
+                    start_growing(created_entity, event.tick)
+
                     -- remove seed
                     seedchest.get_inventory(defines.inventory.chest).remove({name=seedtoplant,count=1})
                 end
             -- seeds are priority. if none are there, check for bushes
-            elseif  bushtoplant ~= nil then
+            elseif bushtoplant ~= nil then
                 local radius = 10
                 -- target for planting
                 local targetarea = find_non_concrete_position(radar.surface, bushtoplant, radar.position, radius)
-                
+
                 -- plant if there is a target area
                 if targetarea ~= nil then
-                    radar.surface.create_entity{name = bushtoplant, position = targetarea}
-                    
+                    local created_entity = radar.surface.create_entity { name = bushtoplant, position = targetarea }
+                    start_growing(created_entity, event.tick)
+
                     -- remove seed
                     seedchest.get_inventory(defines.inventory.chest).remove({name=bushtoplant,count=1})
                 end
             end
-            
+
         end
     elseif string.find(radar.name, "lumbermill") ~= nil then
         -- lumbermill building
-        
+
         -- check if chest is nearby
         local targetchest = find_target_chest(radar)
         if targetchest ~= nil then
@@ -215,10 +226,10 @@ script.on_event(defines.events.on_sector_scanned, function(event)
 	elseif string.find(radar.name, "cowfarm") ~= nil then
 		-- cowfarm building
 		local surface = radar.surface
-		
+
 		-- find chest nearby
 		local targetchest = find_target_chest(radar)
-		
+
 		-- found a chest?
 		if targetchest ~= nil then
 			-- check if resources for cowspawn are in chest
@@ -250,7 +261,7 @@ script.on_event(defines.events.on_sector_scanned, function(event)
 			end
 		end
     end
-    
+
 end)
 
 
@@ -259,7 +270,7 @@ script.on_event(defines.events.on_research_finished, function(event)
     local technology = event.research
     -- get current modifier
     local modifier = game.forces["player"].manual_crafting_speed_modifier
-    
+
     -- first occurence of the crafting speed technology sets the modifier from 0 to 1
     if technology.name == "craftingspeed1" then
         game.forces["player"].manual_crafting_speed_modifier = modifier + 1
@@ -267,7 +278,7 @@ script.on_event(defines.events.on_research_finished, function(event)
     elseif string.find(technology.name, "craftingspeed") ~= nil then
         game.forces["player"].manual_crafting_speed_modifier = modifier * 2
     end
-    
+
     -- adds gui elements if the teleport technology was researched
 	-- does this work if it researched when player2 is not on the server, but joins afterwards?
     if technology.name == "teleporttech" then
@@ -278,27 +289,22 @@ script.on_event(defines.events.on_research_finished, function(event)
     end
 end)
 
-
--- event i use for debbuging purposes
-script.on_event(defines.events.on_built_entity, function(event)
-end)
-
 -- the list with saved post location indexed by the player name.
 portlist = {}
 
 script.on_event(defines.events.on_gui_click, function(event)
     -- get the player clicking
     local player = game.players[event.player_index]
-    
+
     -- savebutton pressed
     if event.element.name == "savebutton" then
-    
+
         -- add current position to the table indexed by player name
         portlist[player.name] = player.position
         player.print("Saved position: x = " .. player.position["x"] .. " | y = " .. player.position["y"])
     -- portbutton pressed
     elseif event.element.name == "portbutton" then
-    
+
         -- get saved position if there is one
         local positiontoport = portlist[player.name]
         -- get players main inventory
@@ -312,11 +318,11 @@ script.on_event(defines.events.on_gui_click, function(event)
                 player.print("Ported to position: x = " .. player.position["x"] .. " | y = " .. player.position["y"])
                 -- remove 1 port pill from inventory
                 playerinventory.remove({name="teleport-pill",count=1})
-                player.print("Used 1 pill. " .. playerinventory.get_item_count("teleport-pill") .. " pills left in inventory.") 
+                player.print("Used 1 pill. " .. playerinventory.get_item_count("teleport-pill") .. " pills left in inventory.")
             else
                 player.print("No location to port to saved yet.")
             end
-        else 
+        else
             player.print("Teleport Pill needed.")
         end
 	end

@@ -27,11 +27,19 @@ local trees = {
 
 -- tells the forestry what plants belong to what seeds
 local seeddic = {
-        ["potatoseeds"] = "potatoplant",
-        ["sunflowerseeds"] = "sunflowerplant",
-        ["wheatseeds"] = "wheatplant",
-        ["raw-wood"] = "tree-01",
-		["pumpkinseeds"] = "pumpkinplant"
+	["potatoseeds"] = "potatoplant",
+	["sunflowerseeds"] = "sunflowerplant",
+	["wheatseeds"] = "wheatplant",
+	["raw-wood"] = "tree-01",
+	["pumpkinseeds"] = "pumpkinplant"
+}
+
+local timetogrow = {
+	["potatoplant"] = 5,
+	["sunflowerplant"] = 10,
+	["wheatplant"] = 8,
+	["tree-01"] = 30,
+	["pumpkinplant"] = 20
 }
 
 
@@ -134,6 +142,20 @@ function start_plowing(player)
 	player.print("this button is just a dummy for now")
 end
 
+plantevolvelist = {}
+
+script.on_event(defines.events.on_tick, function(event)
+	if plantevolvelist[event.tick] ~= nil then
+		local dummyplant = plantevolvelist[event.tick][1]
+		local name = plantevolvelist[event.tick][2]
+		local targetarea = dummyplant.position
+		local targetsurface = dummyplant.surface
+		dummyplant.die()
+		targetsurface.create_entity{name=name, position = targetarea}
+		plantevolvelist[event.tick] = nil
+	end
+end)
+
 -- all forestry buildings have their code here
 script.on_event(defines.events.on_sector_scanned, function(event)
     -- get radar that called event
@@ -165,7 +187,8 @@ script.on_event(defines.events.on_sector_scanned, function(event)
                 
                 -- plant if there is a target area
                 if targetarea ~= nil then
-                    radar.surface.create_entity{name = plantname, position = targetarea}
+                    local created = radar.surface.create_entity{name = "dummyplant", position = targetarea}
+					plantevolvelist[game.tick+(timetogrow[plantname]*60)] = {created, plantname}
                     
                     -- remove seed
                     seedchest.get_inventory(defines.inventory.chest).remove({name=seedtoplant,count=1})
@@ -196,7 +219,7 @@ script.on_event(defines.events.on_sector_scanned, function(event)
             local radius = 10
             -- tweak radius for mk > 1... or dont?
             local treetochop = find_tree_to_chop(radar, radius)
-            if treetochop ~= nil then
+            if treetochop ~= nil and treetochop.prototype.mineable_properties["products"] ~= nil then
                 local producttoget = treetochop.prototype.mineable_properties["products"][1]["name"]
                 if treetochop.prototype.mineable_properties["products"][1]["amount"] == nil then
                     amounttoget = treetochop.prototype.mineable_properties["products"][1]["amount_max"]
@@ -281,6 +304,10 @@ end)
 
 -- event i use for debbuging purposes
 script.on_event(defines.events.on_built_entity, function(event)
+    local player = game.players[event.player_index]
+	for k,v in pairs(player.gui.left.children_names) do
+		player.print(v)
+	end
 end)
 
 -- the list with saved post location indexed by the player name.
@@ -319,5 +346,31 @@ script.on_event(defines.events.on_gui_click, function(event)
         else 
             player.print("Teleport Pill needed.")
         end
+	-- some1 wants to plow
+	elseif event.element.name == "plowbutton" then
+		start_plowing(player)
+    end
+end)
+
+
+script.on_event(defines.events.on_player_driving_changed_state, function(event)
+	-- get player name that invoked the event
+	local player = game.players[event.player_index]
+	-- sitting in a vehicle=
+	if player.vehicle ~= nil then
+		-- is it a tractor?
+		if player.vehicle.name == "tractor" then
+			player.gui.left.add{type = "button", name = "plowbutton", caption = "plow"}
+		else
+			-- so no tractor
+		end
+	else
+		-- so no vehicle, you just existed one
+		-- destroy gui elements, if existent
+		if #player.gui.left.children_names > 0 then
+			-- if there is a child, we assume its plowbutton
+			player.gui.left.plowbutton.destroy()
+		end
 	end
+	
 end)

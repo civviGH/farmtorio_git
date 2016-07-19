@@ -28,6 +28,20 @@ data:extend(
     order = "f[beer]"
   },
   
+    {
+    type = "fluid",
+    name = "fluid-biomass",
+    default_temperature = 25,
+    heat_capacity = "1KJ",
+    base_color = {r=0.1, g=0.6, b=0.1},
+    flow_color = {r=0.1, g=0.9, b=0.1},
+    max_temperature = 100,
+    icon = "__farmtorio__/graphics/icons/fluid-biomass.png",
+    pressure_to_speed_ratio = 0.6,
+    flow_to_energy_ratio = 0.59,
+    order = "g"
+  },
+  
   
     }
 )

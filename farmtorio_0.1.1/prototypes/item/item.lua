@@ -376,4 +376,15 @@ data:extend({
 	place_result = "tractor",
     stack_size = 200
   },
+  
+  {
+    type = "item",
+    name = "biomass",
+    icon = "__farmtorio__/graphics/icons/biomass.png",
+    flags = {"goes-to-main-inventory"},
+    subgroup = "farmcraft-subgroup",
+    order = "p",
+    stack_size = 200
+  },
+  
 })

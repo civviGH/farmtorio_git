@@ -275,7 +275,7 @@ data:extend(
     },
   },
 
-      {
+  {
     type = "assembling-machine",
     name = "genelab",
     icon = "__farmtorio__/graphics/icons/genelab.png",

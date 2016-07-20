@@ -15,7 +15,6 @@ data:extend({
     type = "item",
     name = "potato",
     icon = "__farmtorio__/graphics/icons/potato-dark.png",
-	fuel_value = "2MJ",
     flags = {"goes-to-main-inventory"},
     subgroup = "farmcraft-subgroup",
     order = "a[potato]",

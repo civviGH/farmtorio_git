@@ -1,5 +1,4 @@
 data:extend({
-
   {
     type = "furnace",
     name = "fluid-biomass-composter",
@@ -114,7 +113,59 @@ data:extend({
 		pipe_covers = pipecoverspictures()
       }
     },
+  },
 
+
+
+
+
+  {
+    type = "furnace",
+    name = "item-biomass-composter",
+    icon = "__farmtorio__/graphics/icons/item-biomass.png",
+    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    minable = {mining_time = 1, result = "item-biomass-composter"},
+    max_health = 250,
+    corpse = "big-remnants",
+    dying_explosion = "medium-explosion",
+    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    crafting_categories = {"item-biomass-processing"},
+    crafting_speed = 1,
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input",
+      emissions = 8
+    },
+    energy_usage = "1kW",
+    ingredient_count = 8,
+    source_inventory_size = 1,
+    result_inventory_size = 1,
+    animation =
+    {
+      filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1.png",
+      priority="high",
+      width = 99,
+      height = 102,
+      frame_count = 32,
+      line_length = 8,
+      shift = {0.25, -0.1}
+    },
+    vehicle_impact_sound =
+    {
+      filename = "__base__/sound/car-metal-impact.ogg",
+      volume = 0.65
+    },
+    working_sound =
+    {
+      sound = { filename = "__base__/sound/oil-refinery.ogg" },
+      idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
+      apparent_volume = 2.5,
+    },
   },
 
 })
+
+
+

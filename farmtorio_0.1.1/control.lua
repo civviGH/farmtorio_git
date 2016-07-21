@@ -134,10 +134,12 @@ function get_bush_from_chest(inventory)
     return nil
 end
 
+-- calls growing function for entites built by player
 script.on_event(defines.events.on_built_entity, function(event)
     start_growing(event.created_entity, event.tick)
 end)
 
+-- calls growing function for entites built by robots
 script.on_event(defines.events.on_robot_built_entity, function(event)
     start_growing(event.created_entity, event.tick)
 end)

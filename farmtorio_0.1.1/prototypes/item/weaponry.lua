@@ -1,4 +1,5 @@
 data:extend({
+--[[
   {
     type = "item",
     name = "pumpkin-turret",
@@ -9,6 +10,8 @@ data:extend({
 	place_result = "pumpkin-turret",
     stack_size = 50
   },
+  ]]
+  
   
   {
     type = "ammo",

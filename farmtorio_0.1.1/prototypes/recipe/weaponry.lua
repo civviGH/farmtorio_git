@@ -1,4 +1,6 @@
 data:extend({
+
+--[[
     {
         type = "recipe",
         name = "pumpkin-turret",
@@ -12,6 +14,7 @@ data:extend({
         },
         result = "pumpkin-turret"
     },     
+]]
 
    {
         type = "recipe",

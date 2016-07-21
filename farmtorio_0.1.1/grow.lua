@@ -4,7 +4,6 @@
 -- photovoltaic pflanzen müssen noch energie abgeben
  ]]
 
-require "defines"
 growing_plants = {}
 
 function start_growing(plant, tick_count)

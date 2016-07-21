@@ -1,6 +1,8 @@
 data:extend({
 
 -- the pumpkin turret
+-- currently makes trouble in 0.13
+--[[
 {
     type = "ammo-turret",
     name = "pumpkin-turret",
@@ -87,6 +89,8 @@ data:extend({
       sound = make_heavy_gunshot_sounds(),
     }
   },
+  ]]
+  
   
 -- entity for the fire carpet  
   {

@@ -1,4 +1,3 @@
-require "defines"
 require "grow"
 
 -- list of trees

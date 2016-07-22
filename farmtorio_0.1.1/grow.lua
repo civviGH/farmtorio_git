@@ -7,9 +7,14 @@
 evolution_dictionary = {
 	["photovoltaic-plant-1"] = "photovoltaic-plant-2",
 	["photovoltaic-plant-2"] = "die",
+	["dummy-plant-1"] = "dummy-plant-2",
+	["dummy-plant-2"] = "dummy-plant-3"
 }
 
 time_to_grow_dictionary = {
+	["dummy-plant-1"] = 5,
+	["dummy-plant-2"] = 5,
+	["dummy-plant-3"] = 5,
 	["photovoltaic-plant-1"] = 5,
 	["photovoltaic-plant-2"] = 5,
 }

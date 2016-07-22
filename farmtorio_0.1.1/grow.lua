@@ -1,24 +1,25 @@
 --[[TODO
--- verallgemeinern auf alle photovoltaic stufen
--- photovoltaic pflanzen müssen noch energie abgeben
- ]]
+	-- verallgemeinern auf alle photovoltaic stufen
+	-- photovoltaic pflanzen müssen noch energie abgeben
+]]
 
- -- list each plant and its next stage. die if it should die
+-- list each plant and its next stage. die if it should die
 evolution_dictionary = {
 	["photovoltaic-plant-1"] = "photovoltaic-plant-2",
-	--["photovoltaic-plant-2"] = "die",
+	["photovoltaic-plant-2"] = "die",
 }
 
 time_to_grow_dictionary = {
 	["photovoltaic-plant-1"] = 5,
 	["photovoltaic-plant-2"] = 5,
 }
- 
+
 growing_plants = {}
 TICKS_PER_SECOND = 60
 
 -- checks if entity is a growing plant. adds it to the growing list if it is
 function start_growing(plant, tick_count)
+	-- makes sure that only actually growing plants make it into the list
 	if evolution_dictionary[plant.name] == nil then	
 		do return end
 	end
@@ -29,33 +30,36 @@ end
 script.on_event(defines.events.on_tick, function(event)
     if event.tick % 60 ~= 0 then
         do return end
-    end
+	end
     for i = #growing_plants, 1, -1 do
-        if event.tick - growing_plants[i][2] > time_to_grow_dictionary[growing_plants[i][1].name] * TICKS_PER_SECOND then
-            -- plant grows
-            local plant_to_grow = growing_plants[i][1]
-			
-			-- if plant has already died, remove it from list instead
-			if not plant_to_grow.valid then
-				table.remove(growing_plants, i)
-				do return end
-			end
-			
-            local plant_name = plant_to_grow.name
-            local plant_position = plant_to_grow.position
-            local plant_surface = plant_to_grow.surface
-            plant_to_grow.die()
-			-- if plant dies, let it die, leave
+		-- plant not valid anymore? remove it, jump to end of loop
+		if  not growing_plants[i][1].valid then
+			table.remove(growing_plants,i)
+			goto continue
+		end
+		-- plant is valid, check if it grows
+		if (event.tick - growing_plants[i][2]) > time_to_grow_dictionary[growing_plants[i][1].name] * TICKS_PER_SECOND then
+			-- plant grows
+			local plant_to_grow = growing_plants[i][1]			
+			local plant_name = plant_to_grow.name
+			-- does it die? remove and continue
 			if evolution_dictionary[plant_name] == "die" then
+				plant_to_grow.die()
 				table.remove(growing_plants, i)
-				do return end
+				goto continue
 			end
-			-- else plant its next stage, remove old one
-			if evolution_dictionary[plant_name] ~= nil then
-				local new_plant = plant_surface.create_entity { name = evolution_dictionary[plant_name], position = plant_position, force = "player" }
-				start_growing(new_plant, event.tick)
-			end
-            table.remove(growing_plants, i)
-        end
-    end
+			-- else get information
+			local plant_position = plant_to_grow.position
+			local plant_surface = plant_to_grow.surface
+			-- destroy old plant
+			plant_to_grow.die()
+			-- plant next stage
+			local new_plant = plant_surface.create_entity { name = evolution_dictionary[plant_name], position = plant_position, force = "player" }
+			-- let it grow (no pun intended)
+			start_growing(new_plant, event.tick)			
+			table.remove(growing_plants, i)
+		end
+		-- label for goto since there is no continue keyword
+		::continue::
+	end
 end)

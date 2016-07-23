@@ -28,33 +28,6 @@ data:extend({
 	
 	{
 		type = "recipe",
-		name = "findpotatoseeds",
-		icon = "__farmtorio__/graphics/icons/potatoseeds-dark.png",
-		subgroup = "seeds-subgroup",
-		enabled = "true",
-		energy_required = 0.5,
-		ingredients =
-		{
-			{"raw-wood", 50}
-		},
-		result = "potatoseeds"
-	},
-	
-	{
-		type = "recipe",
-		name = "findwheatseeds",
-		subgroup = "seeds-subgroup",
-		enabled = "true",
-		energy_required = 0.5,
-		ingredients =
-		{
-			{"raw-wood", 50}
-		},
-		result = "wheatseeds"
-	},  
-	
-	{
-		type = "recipe",
 		name = "findpupmkinseeds",
 		subgroup = "seeds-subgroup",
 		enabled = "true",
@@ -66,18 +39,6 @@ data:extend({
 		result = "pumpkinseeds"
 	},
 	
-	{
-		type = "recipe",
-		name = "findsunflowerseeds",
-		subgroup = "seeds-subgroup",
-		enabled = "true",
-		energy_required = 0.5,
-		ingredients =
-		{
-			{"raw-wood", 50}
-		},
-		result = "sunflowerseeds"
-	},
 	
 	{
 		type = "recipe",
@@ -129,7 +90,7 @@ data:extend({
 	
 	{
 		type = "recipe",
-		name = "forestrymk2",
+		name = "forestry-2",
 		subgroup = "buildings-subgroup",
 		enabled = "true",
 		energy_required = 10,
@@ -140,7 +101,7 @@ data:extend({
 		},
 		results =
 		{
-			{type="item", name="forestrymk2", amount = 1}
+			{type="item", name="forestry-2", amount = 1}
 		}
 	},
 	
@@ -159,22 +120,7 @@ data:extend({
 			{type="item", name="lumbermill", amount = 1}
 		}
 	},
-	
-	{
-		type = "recipe",
-		name = "potatoseeds",
-		subgroup = "seeds-subgroup",
-		enabled = "true",
-		energy_required = 0.5,
-		ingredients =
-		{
-			{"potato", 1}
-		},
-		results =
-		{
-			{type="item", name="potatoseeds", amount = 1}
-		}
-	},   
+
 	
 	{
 		type = "recipe",
@@ -191,38 +137,7 @@ data:extend({
 			{type="item", name="pumpkinseeds", amount = 10}
 		}
 	},   
-	
-	{
-		type = "recipe",
-		name = "sunflowerseeds",
-		subgroup = "seeds-subgroup",
-		enabled = "true",
-		energy_required = 0.5,
-		ingredients =
-		{
-			{"sunflower", 1}
-		},
-		results =
-		{
-			{type="item", name="sunflowerseeds", amount = 4}
-		}
-	},
-	
-	{
-		type = "recipe",
-		name = "wheatseeds",
-		subgroup = "seeds-subgroup",
-		enabled = "true",
-		energy_required = 0.5,
-		ingredients =
-		{
-			{"wheat", 1}
-		},
-		results =
-		{
-			{type="item", name="wheatseeds", amount = 3}
-		}
-	},
+
 	
 	{
 		type = "recipe",

@@ -102,10 +102,10 @@ data:extend({
 
     {
         type = "radar",
-        name = "forestrymk2",
-        icon = "__farmtorio__/graphics/icons/forestry2.png",
+        name = "forestry-2",
+        icon = "__farmtorio__/graphics/icons/forestry-2.png",
         flags = { "placeable-player", "player-creation" },
-        minable = { hardness = 0.2, mining_time = 0.5, result = "forestrymk2" },
+        minable = { hardness = 0.2, mining_time = 0.5, result = "forestry-2" },
         max_health = 150,
         corpse = "medium-remnants",
         resistances =
@@ -129,7 +129,7 @@ data:extend({
         energy_usage = "200kW",
         pictures =
         {
-            filename = "__farmtorio__/graphics/entity/forestry/forestry2.png",
+            filename = "__farmtorio__/graphics/entity/forestry/forestry-2.png",
             priority = "low",
             width = 64,
             height = 64,

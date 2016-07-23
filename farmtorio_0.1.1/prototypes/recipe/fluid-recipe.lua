@@ -44,7 +44,7 @@ data:extend({
     subgroup = "farmcraft-subgroup",
     ingredients =
     {
-      {type="item", name="sunflowerseeds", amount=10},
+      {type="item", name="sunflower-seeds", amount=10},
       {type="fluid", name="water", amount= 3}
     },
     results =

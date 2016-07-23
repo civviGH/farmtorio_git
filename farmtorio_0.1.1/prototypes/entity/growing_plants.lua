@@ -1,17 +1,7 @@
---[[
-	
-	list = { 
-	{"potato", 3, 2}
-	{"pumpkin", 2, 1}
-	{"wheat", 5, 2}
-	etc...
-	
-	reads plantname, cycles, amount of resource for harvesting
-]]
-
 list = {
 	{"dummy", 3, 3, "potato"},
 }
+-- reads plantname, number of cycles, amount of resource, type of resource
 
 
 function make_evolution(plantlist)

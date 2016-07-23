@@ -2,7 +2,7 @@ data:extend({
     {
         type = "tree",
         name = "iron-ore-bush",
-        icon = "__farmtorio__/graphics/icons/ironorebush.png",
+        icon = "__farmtorio__/graphics/icons/iron-ore-bush.png",
         flags = { "placeable-neutral", "breaths-air" },
         minable =
         {

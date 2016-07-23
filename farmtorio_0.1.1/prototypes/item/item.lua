@@ -11,15 +11,7 @@ data:extend({
 		stack_size = 10
 	},
 	
-	{
-		type = "item",
-		name = "potato",
-		icon = "__farmtorio__/graphics/icons/potato-dark.png",
-		flags = {"goes-to-main-inventory"},
-		subgroup = "farmcraft-subgroup",
-		order = "a[potato]",
-		stack_size = 200
-	},
+
 	
 	{
 		type = "item",
@@ -76,12 +68,12 @@ data:extend({
 	
 	{
 		type = "item",
-		name = "forestrymk2",
-		icon = "__farmtorio__/graphics/icons/forestry2.png",
+		name = "forestry-2",
+		icon = "__farmtorio__/graphics/icons/forestry-2.png",
 		flags = {"goes-to-quickbar"},
 		subgroup = "buildings-subgroup",
 		order = "b[forestry2]",
-		place_result = "forestrymk2",
+		place_result = "forestry-2",
 		stack_size = 50
 	},
 	
@@ -96,59 +88,7 @@ data:extend({
 		stack_size = 50
 	},
 	
-	{
-		type = "item",
-		name = "potatoseeds",
-		icon = "__farmtorio__/graphics/icons/potatoseeds-dark.png",
-		flags = {"goes-to-quickbar"},
-		subgroup = "seeds-subgroup",
-		order = "h[potatoseeds]",
-		place_result = "potatoplant",
-		stack_size = 200
-	},
-	
-	{
-		type = "item",
-		name = "sunflowerseeds",
-		icon = "__farmtorio__/graphics/icons/sunflowerseeds.png",
-		flags = {"goes-to-quickbar"},
-		subgroup = "seeds-subgroup",
-		order = "i[sunflowerseeds]",
-		place_result = "sunflowerplant",
-		stack_size = 200
-	},
-	
-	{
-		type = "item",
-		name = "sunflower",
-		icon = "__farmtorio__/graphics/icons/sunflower.png",
-		flags = {"goes-to-main-inventory"},
-		subgroup = "farmcraft-subgroup",
-		order = "j[sunflower]",
-		stack_size = 200
-	},  
-	
-	{
-		type = "item",
-		name = "wheatseeds",
-		icon = "__farmtorio__/graphics/icons/wheatseeds.png",
-		flags = {"goes-to-quickbar"},
-		subgroup = "seeds-subgroup",
-		order = "l[wheatseeds]",
-		place_result = "wheatplant",
-		stack_size = 200
-	},  
-	
-	{
-		type = "item",
-		name = "wheat",
-		icon = "__farmtorio__/graphics/icons/wheat.png",
-		flags = {"goes-to-main-inventory"},
-		subgroup = "farmcraft-subgroup",
-		order = "k[wheat]",
-		stack_size = 200
-	},
-	
+
 	{
 		type = "item",
 		name = "hay",
